@@ -66,6 +66,7 @@ rules:
   - RULE-SET,private_domain,🟢 直连
   - RULE-SET,direct_custom,🟢 直连
   - RULE-SET,apple_domain,🍎 Apple
+  - RULE-SET,cn_domain,🎯 全球直连
   - RULE-SET,proxy_custom,🚀 节点选择
   - RULE-SET,ai_custom,🤖 ChatGPT
   - RULE-SET,github_domain,👨🏿‍💻 GitHub
@@ -79,7 +80,6 @@ rules:
   - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,paypal_domain,💶 PayPal
   - RULE-SET,geolocation-!cn,🚀 节点选择
-  - RULE-SET,cn_domain,🎯 全球直连
   - RULE-SET,google_ip,🍀 Google,no-resolve
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
   - RULE-SET,telegram_ip,📲 Telegram,no-resolve
