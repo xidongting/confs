@@ -79,6 +79,7 @@ rules:
   - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,paypal_domain,💶 PayPal
   - RULE-SET,geolocation-!cn,🚀 节点选择
+  # geolocation-cn放在geolocation-!cn之后。两者域名有交集，而这部分域名交给代理一般会更加合适
   - RULE-SET,cn_domain,🎯 全球直连
   - RULE-SET,google_ip,🍀 Google,no-resolve
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
