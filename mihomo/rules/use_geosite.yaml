@@ -5,7 +5,7 @@ rules:
   - GEOSITE,private,🟢 直连
   - GEOSITE,apple-cn,🍎 Apple
   
-  - GEOSITE,openai,🤖 ChatGPT
+  - GEOSITE,category-ai-chat-!cn,🤖 ChatGPT
   - GEOSITE,github,👨🏿‍💻 GitHub
   - GEOSITE,youtube,📹 YouTube
   - GEOSITE,google,🍀 Google
@@ -17,8 +17,8 @@ rules:
   - GEOSITE,netflix,🎥 NETFLIX
   - GEOSITE,paypal,💶 PayPal
   
-  - GEOSITE,geolocation-!cn,🚀 节点选择
   - GEOSITE,cn,🎯 全球直连
+  - GEOSITE,geolocation-!cn,🚀 节点选择
   
   - GEOIP,google,🍀 Google,no-resolve
   - GEOIP,netflix,🎥 NETFLIX,no-resolve
