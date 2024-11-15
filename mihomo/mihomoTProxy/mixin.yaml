@@ -55,7 +55,7 @@ dns:
     geosite:cn,private:
       - system
     geosite:geolocation-!cn:
-      - https://dns.cloudflare.com/dns-query
+      - https://cloudflare-dns.com/dns-query
       - https://dns.google/dns-query
 geodata-mode: true
 geodata-loader: standard
