@@ -6,7 +6,7 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 🟢 直连
+    proxy: 直连
     url: "COMPLETEME"
 
 
@@ -30,67 +30,65 @@ sniffer:
     - "+.apple.com"
 
 proxies:
-- name: "🟢 直连"
+- name: "直连"
   type: direct
   udp: true
 
-pr: &pr {type: select, proxies: [🚀 节点选择, 🔯 香港故转, 🔯 日本故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 美国自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, 🟢 直连]}
+pr: &pr {type: select, proxies: [节点选择, 香港故转, 日本故转, 香港自动, 日本自动, 美国自动, 自动选择, 香港节点, 日本节点, 美国节点, 全部节点, 直连]}
 
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🔯 香港故转, 🔯 日本故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 美国自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, 🟢 直连]}
-  - {name: 📹 YouTube, <<: *pr}
-  - {name: 🍀 Google, <<: *pr}
-  - {name: 🤖 ChatGPT, type: select, proxies: [♻️ 美国自动, 🇺🇲 美国节点]}
-  - {name: 👨🏿‍💻 GitHub, <<: *pr}
-  - {name: 🐬 OneDrive, <<: *pr}
-  - {name: 🪟 Microsoft, <<: *pr}
-  - {name: 🎵 TikTok, <<: *pr}
-  - {name: 📲 Telegram, <<: *pr}
-  - {name: 🎥 NETFLIX, <<: *pr}
-  - {name: ✈️ Speedtest, <<: *pr}
-  - {name: 💶 PayPal, <<: *pr}
-  - {name: 🍎 Apple, type: select, proxies: [🟢 直连, 🚀 节点选择]}
-  - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
-  - {name: 🐟 漏网之鱼, <<: *pr}
-  - {name: 🇭🇰 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: 🇯🇵 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
-  - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: 🔯 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
-  - {name: 🔯 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
-  - {name: ♻️ 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
-  - {name: ♻️ 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
-  - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
-  - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
-  - {name: 🌐 全部节点, type: select, include-all: true}
+  - {name: 节点选择, type: select, proxies: [香港故转, 日本故转, 香港自动, 日本自动, 美国自动, 自动选择, 香港节点, 日本节点, 美国节点, 全部节点, 直连]}
+  - {name: YouTube, <<: *pr}
+  - {name: Google, <<: *pr}
+  - {name: ChatGPT, type: select, proxies: [美国自动, 美国节点]}
+  - {name: GitHub, <<: *pr}
+  - {name: OneDrive, <<: *pr}
+  - {name: Microsoft, <<: *pr}
+  - {name: Telegram, <<: *pr}
+  - {name: NETFLIX, <<: *pr}
+  - {name: Speedtest, type: select, proxies: [直连, 节点选择]}
+  - {name: Apple, type: select, proxies: [直连, 节点选择]}
+  - {name: 全球直连, type: select, proxies: [直连, 节点选择]}
+  - {name: 漏网之鱼, <<: *pr}
+  - {name: 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
+  - {name: 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
+  - {name: 全部节点, type: select, include-all: true}
 rrules:
   # 局域网
-  - GEOIP,lan,🟢 直连,no-resolve
-  - GEOSITE,private,🟢 直连
+  - GEOIP,lan,直连,no-resolve
+  - GEOSITE,private,直连
 
   # 自定义
-  - RULE-SET,direct_custom,🟢 直连
-  - RULE-SET,proxy_custom,🚀 节点选择
+  - RULE-SET,direct_custom,直连
+  - RULE-SET,proxy_custom,节点选择
 
   # 站点指定
-  - GEOSITE,apple-cn,🍎 Apple
-  - GEOSITE,category-ai-chat-!cn,🤖 ChatGPT
-  - GEOSITE,youtube,📹 YouTube
-  - GEOSITE,google,🍀 Google
-  - GEOSITE,github,👨🏿‍💻 GitHub
-  - GEOSITE,microsoft,🪟 Microsoft
-  - GEOSITE,speedtest,✈️ Speedtest
-  - GEOSITE,telegram,📲 Telegram
-  - GEOSITE,netflix,🎥 NETFLIX
+  - GEOSITE,apple-cn,Apple
+  - GEOSITE,category-ai-chat-!cn,ChatGPT
+  - GEOSITE,youtube,YouTube
+  - GEOSITE,google,Google
+  - GEOSITE,github,GitHub
+  - GEOSITE,microsoft,Microsoft
+  - GEOSITE,speedtest,Speedtest
+  - GEOSITE,telegram,Telegram
+  - GEOSITE,netflix,NETFLIX
   
   # 宽匹配
-  - GEOSITE,cn,🎯 全球直连
-  - GEOSITE,geolocation-!cn,🚀 节点选择
+  - GEOSITE,cn,全球直连
+  - GEOSITE,geolocation-!cn,节点选择
   
-  - GEOIP,google,🍀 Google,no-resolve
-  - GEOIP,netflix,🎥 NETFLIX,no-resolve
-  - GEOIP,telegram,📲 Telegram,no-resolve
-  - GEOIP,cn,🎯 全球直连
-  - MATCH,🐟 漏网之鱼
+  - GEOIP,google,Google,no-resolve
+  - GEOIP,netflix,NETFLIX,no-resolve
+  - GEOIP,telegram,Telegram,no-resolve
+  - GEOIP,cn,全球直连
+  - MATCH,漏网之鱼
 
 rule-anchor:
 domain: &domain {type: http, interval: 86400, behavior: domain, format: text}
