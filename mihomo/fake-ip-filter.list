@@ -14,8 +14,6 @@ xbox.*.microsoft.com
 *.blzstatic.cn
 *.battle.net
 
-+.zhangzhixiong.top
-
 # === Linksys Wireless Router ===
 *.linksys.com
 *.linksyssmartwifi.com
