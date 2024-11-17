@@ -1,22 +1,24 @@
 rules:
+  # 局域网
+  - GEOIP,lan,🟢 直连,no-resolve
+  - GEOSITE,private,🟢 直连
+
+  # 自定义
   - RULE-SET,direct_custom,🟢 直连
   - RULE-SET,proxy_custom,🚀 节点选择
-  
-  - GEOSITE,private,🟢 直连
+
+  # 站点指定
   - GEOSITE,apple-cn,🍎 Apple
-  
   - GEOSITE,category-ai-chat-!cn,🤖 ChatGPT
-  - GEOSITE,github,👨🏿‍💻 GitHub
   - GEOSITE,youtube,📹 YouTube
   - GEOSITE,google,🍀 Google
-  - GEOSITE,onedrive,🐬 OneDrive
+  - GEOSITE,github,👨🏿‍💻 GitHub
   - GEOSITE,microsoft,🪟 Microsoft
-  - GEOSITE,tiktok,🎵 TikTok
   - GEOSITE,speedtest,✈️ Speedtest
   - GEOSITE,telegram,📲 Telegram
   - GEOSITE,netflix,🎥 NETFLIX
-  - GEOSITE,paypal,💶 PayPal
   
+  # 宽匹配
   - GEOSITE,cn,🎯 全球直连
   - GEOSITE,geolocation-!cn,🚀 节点选择
   
