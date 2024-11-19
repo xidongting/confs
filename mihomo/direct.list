@@ -1,4 +1,14 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
++.zhangzhixiong.top
+
+# pt
++.m-team.*
+
+# 镜像站
+ghp.ci
+
+
+#########以下收集自网络##########
 
 +.time.windows.com
 +.lanzov.com
@@ -6,14 +16,6 @@
 +.msftcomecttest.com
 +.dns.msftncsi.com
 +.ipv6.msftconnecttest.com
-
-+.zhangzhixiong.top
-
-+.m-team.*
-
-# 镜像站
-ghp.ci
-
 
 # 360
 +.360.com
