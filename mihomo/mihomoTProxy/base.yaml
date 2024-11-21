@@ -34,10 +34,10 @@ proxies:
   type: direct
   udp: true
 
-pr: &pr {type: select, proxies: [节点选择, 香港故转, 日本故转, 香港自动, 日本自动, 美国自动, 自动选择, 香港节点, 日本节点, 美国节点, 全部节点, 直连]}
+pr: &pr {type: select, proxies: [节点选择, 香港自动, 日本自动, 香港故转, 日本故转, 美国自动, 自动选择, 香港节点, 日本节点, 美国节点, 全部节点, 直连]}
 
 proxy-groups:
-  - {name: 节点选择, type: select, proxies: [香港故转, 日本故转, 香港自动, 日本自动, 美国自动, 自动选择, 香港节点, 日本节点, 美国节点, 全部节点, 直连]}
+  - {name: 节点选择, type: select, proxies: [香港自动, 日本自动, 香港故转, 日本故转, 美国自动, 自动选择, 香港节点, 日本节点, 美国节点, 全部节点, 直连]}
   - {name: YouTube, <<: *pr}
   - {name: Google, <<: *pr}
   - {name: ChatGPT, type: select, proxies: [美国自动, 美国节点]}
@@ -61,11 +61,14 @@ proxy-groups:
   - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
   - {name: 全部节点, type: select, include-all: true}
 rules:
+  - GEOIP,private,直连,no-resolve
+
   # 自定义
   - RULE-SET,direct_custom,直连
   - RULE-SET,proxy_custom,节点选择
 
   # 站点指定
+  - GEOSITE,apple-cn,Apple
   - GEOSITE,category-ai-chat-!cn,ChatGPT
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google
@@ -75,17 +78,12 @@ rules:
   - GEOSITE,telegram,Telegram
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,gfw,节点选择
-
-  - GEOSITE,private,直连
-  - GEOSITE,apple-cn,Apple
   - GEOSITE,cn,全球直连
-
   - GEOSITE,geolocation-!cn,节点选择
   
-  - GEOIP,google,Google,no-resolve
-  - GEOIP,netflix,NETFLIX,no-resolve
-  - GEOIP,telegram,Telegram,no-resolve
-  - GEOIP,private,直连
+  - GEOIP,google,Google
+  - GEOIP,netflix,NETFLIX
+  - GEOIP,telegram,Telegram
   - GEOIP,cn,全球直连
   - MATCH,漏网之鱼
 
@@ -93,4 +91,3 @@ domain: &domain {type: http, interval: 86400, behavior: domain, format: text}
 rule-providers: 
   direct_custom: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/main/mihomo/direct.list" }
   proxy_custom: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/main/mihomo/proxy.list" }
-  fakeip_filter_list: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/main/mihomo/fake-ip-filter.list" }
