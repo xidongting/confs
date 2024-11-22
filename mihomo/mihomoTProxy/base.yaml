@@ -89,5 +89,6 @@ rules:
 
 domain: &domain {type: http, interval: 86400, behavior: domain, format: text}
 rule-providers: 
-  direct_custom: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/main/mihomo/direct.list" }
-  proxy_custom: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/main/mihomo/proxy.list" }
+  direct_custom: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/refs/heads/main/mihomo/direct.list" }
+  proxy_custom: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/refs/heads/main/mihomo/proxy.list" }
+  fakeip_filter_custom: { <<: *domain, url: "https://raw.githubusercontent.com/xidongting/confs/refs/heads/main/mihomo/fake-ip-filter.list" }
