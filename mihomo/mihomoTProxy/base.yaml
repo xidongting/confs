@@ -62,6 +62,7 @@ proxy-groups:
   - {name: 全部节点, type: select, include-all: true}
 rules:
   - GEOIP,private,直连,no-resolve
+  - GEOSITE,private,直连
 
   # 自定义
   - RULE-SET,direct_custom,直连
