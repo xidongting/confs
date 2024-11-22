@@ -38,7 +38,7 @@ ntp7.*.com
 
 *.time.edu.cn
 *.ntp.org.cn
-+.pool.ntp.org
+#+.pool.ntp.org
 
 time1.cloud.tencent.com
 
