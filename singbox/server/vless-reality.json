@@ -1,0 +1,53 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-in",
+      "listen": "::",
+      "listen_port": 1087,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "users": [
+        {
+          "uuid": "6bd95dcb-1499-482d-9741-70ac1cbc4710",		//执行 sing-box generate uuid 生成
+          "flow": ""
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.cdn-apple.com",		//可自定义修改，可以不改，但是推荐用https://bgp.tools/去扫你VPS或独服同IP网段里的网站延迟低
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "icloud.cdn-apple.com",		//可自定义修改，可以不改，但是推荐用https://bgp.tools/去扫你VPS或独服同IP网段里的网站延迟低
+            "server_port": 443
+          },
+          "private_key": "ILlA7oqf6yP1nlx09ZB9cHGxoxQb1PB3OwyVcuVEhkU",		// 执行 sing-box generate reality-keypair 生成
+          "short_id": [
+            "429cca4e7bbf30c4"		// 0 到 f，长度为 2 的倍数，长度上限为 16，可留空，或执行 sing-box generate rand 8 --hex 生成
+          ]
+        }
+      },
+      "multiplex": {
+        "enabled": true,
+        "padding": true,
+        "brutal": {
+          "enabled": true,
+          "up_mbps": 600,
+          "down_mbps": 600
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ]
+}
